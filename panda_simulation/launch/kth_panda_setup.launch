@@ -1,0 +1,70 @@
+<launch>
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find franka_description)/robots/panda_arm_hand.urdf.xacro"/>
+
+    <!-- GAZEBO arguments -->
+    <arg name="paused" default="false"/>
+    <arg name="use_sim_time" default="true"/>
+    <arg name="gui" default="true"/>
+    <arg name="headless" default="false"/>
+    <arg name="debug" default="false"/>
+    <arg name="load_gripper" default="true"/>
+
+    <!--launch GAZEBO with own world configuration -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <!-- <arg name="world_name" value="$(find robotics_assisted_tomography)/worlds/tomography.world"/> -->
+        <arg name="debug" value="$(arg debug)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+    </include>
+
+
+
+
+<!-- BEGIN ROBOT 1-->
+  <group ns="frankastein">
+    <param name="tf_prefix" value="frankastein_tf" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm_hand.urdf.xacro' robot_name:='panda' init_pose_xyz:='0 0 0' init_ori_rpy:='0 0 0' " />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model panda -robot_name:='panda'"/>
+    <rosparam file="$(find panda_simulation)/config/panda_control.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller panda_hand_controller panda_arm_controller " />   
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+  </group>
+
+<!-- BEGIN ROBOT 2-->
+  <group ns="pandabaer">
+    <param name="tf_prefix" value="pandabaer_tf" />
+    <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find franka_description)/robots/panda_arm_hand.urdf.xacro' robot_name:='panda2' init_pose_xyz:='0 0 2' init_ori_rpy:='0 0 1.4' " />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model panda2 -robot_name:='panda2'"/>
+    <rosparam file="$(find panda_simulation)/config/panda_control.yaml" command="load"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller panda_hand_controller panda_arm_controller" />
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+     <!--include file="$(find panda_moveit_config)/launch/planning_context.launch">
+        <arg name="load_robot_description" value="false"/>
+    </include>
+    <include file="$(find panda_moveit_config)/launch/move_group.launch" />
+    <include file="$(find panda_moveit_config)/launch/moveit_rviz.launch" /-->
+
+    <node name="joint_state_desired_publisher" pkg="topic_tools" type="relay" args="joint_states joint_states_desired" />
+    
+    <!-- launch robot control node for moveit motion planning -->
+    <!--node pkg="panda_simulation" type="robot_control_node" name="robot_control_node" /-->
+
+  </group>
+
+<!-- TF Tree-->
+  <node pkg="tf" type="static_transform_publisher" name="world_frankastein" args="0 0 0 0 0 0 world frankastein_tf/world 100" />
+  <node pkg="tf" type="static_transform_publisher" name="world_pandabaer" args="0 0 0 0 0 0 world pandabaer_tf/world  100" />
+
+
+
+
+ 
+  
+
+
+
+   
+
+</launch>
