@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<launch>
+  
+   <arg name="panda_ns_name" value="pandabaer"/>
+   <arg name="franka_ns_name" value="frankastein"/>
+
+
+	<arg name="panda_robot_ip" default="172.16.0.12"/>
+    <arg name="panda_load_gripper" default="true" />
+    <arg name="franka_robot_ip" default="172.16.2.2"/>
+    <arg name="franka_load_gripper" default="true" />
+	
+  	<node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find franka_example_controllers)/launch/rviz/ns_franka_description_with_marker.rviz"/>
+  	<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" required="false" />
+
+  	<!-- TF-tree -->
+  	<node pkg="tf" type="static_transform_publisher" name="world_franka" args="1 0 0 0 0 0 1 world /frankastein/world 100" />
+  	<node pkg="tf" type="static_transform_publisher" name="world_panda" args="-1 0 0 0 0 0 1 world /pandabaer/world 100" />
+  
+	<group ns="$(arg panda_ns_name)">
+	    <param name="tf_prefix" value="$(arg panda_ns_name)" />
+	    
+	    <machine
+		    name="panda-baer"
+		    address="172.16.1.20"
+		    user="baer"
+		    password="PandaBaer"
+		    timeout="100"
+		    env-loader="/home/baer/catkin_ws/devel/remote_pandabaer_env_loader.sh"
+		    default="true"
+		/>
+
+			
+		<include file="$(find franka_control)/launch/franka_control.launch" >
+		    <arg name="robot_ip" value="$(arg panda_robot_ip)" />
+		    <arg name="load_gripper" value="$(arg panda_load_gripper)" />
+		</include>
+
+	  <rosparam command="load" file="$(find franka_example_controllers)/config/franka_example_controllers.yaml" />
+	  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="cartesian_impedance_example_controller" />
+
+	  
+	  
+
+	</group>
+
+
+	<group ns="$(arg franka_ns_name)">
+	    <param name="tf_prefix" value="$(arg franka_ns_name)" />
+	    
+	    <machine
+		    name="franka-stein"
+		    address="172.16.1.10"
+		    user="stein"
+		    password="FrankaStein"
+		    timeout="100"
+		    env-loader="/home/stein/catkin_ws/devel/remote_frankastein_env_loader.sh"
+		    default="true"
+		/>
+
+			
+		<include file="$(find franka_control)/launch/franka_control.launch" >
+		    <arg name="robot_ip" value="$(arg franka_robot_ip)" />
+		    <arg name="load_gripper" value="$(arg franka_load_gripper)" />
+		</include>
+
+	  <rosparam command="load" file="$(find franka_example_controllers)/config/franka_example_controllers.yaml" />
+	  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="cartesian_impedance_example_controller" />
+
+	 
+	  
+
+	</group>
+
+  
+  
+</launch>
