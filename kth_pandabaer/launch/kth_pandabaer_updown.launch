@@ -14,8 +14,12 @@
   	<node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" required="false" />
 
   	<!-- TF-tree -->
-  	<node pkg="tf" type="static_transform_publisher" name="world_franka" args="1 0 0 0 0 0 1 world /frankastein/world 100" />
-  	<node pkg="tf" type="static_transform_publisher" name="world_panda" args="-1 0 0 0 0 0 1 world /pandabaer/world 100" />
+  	<!--node pkg="tf" type="static_transform_publisher" name="world_franka" args="0 0 0 0 0 0   world /frankastein/world  100" />
+  	<node pkg="tf" type="static_transform_publisher" name="world_panda" args="0 0 0 0 0 0  world /pandabaer/world 100" /-->
+
+  	<!--node pkg="tf" type="static_transform_publisher" name="franka_link0" args="0 0 0 0 0 0  /frankastein/world /frankastein/panda_link0 100" />
+  	<node pkg="tf" type="static_transform_publisher" name="panda_link0" args="-1 0 0 0 0 0  /pandabaer/panda_link0 /pandabaer/panda_link0 100" /-->
+  	
   
 	<group ns="$(arg panda_ns_name)">
 	    <param name="tf_prefix" value="$(arg panda_ns_name)" />
@@ -31,13 +35,15 @@
 		/>
 
 			
-		<include file="$(find franka_control)/launch/franka_control.launch" >
+		<include file="$(find franka_control)/launch/franka_control.launch" machine="panda-baer" >
 		    <arg name="robot_ip" value="$(arg panda_robot_ip)" />
 		    <arg name="load_gripper" value="$(arg panda_load_gripper)" />
 		</include>
 
-	  <rosparam command="load" file="$(find franka_example_controllers)/config/franka_example_controllers.yaml" />
-	  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="cartesian_impedance_example_controller" />
+	  
+	  <node name="controller_spawner" pkg="" type="spawner" respawn="false" output="screen" args="cartesian_impedance_example_controller" machine="panda-baer" >
+	  	<rosparam command="load" file="$(/home/baer/catkin_ws/franka_example_controllers)/config/franka_example_controllers.yaml" />
+	  </node>
 
 	  
 	  
@@ -45,7 +51,7 @@
 	</group>
 
 
-	<group ns="$(arg franka_ns_name)">
+	<!--group ns="$(arg franka_ns_name)">
 	    <param name="tf_prefix" value="$(arg franka_ns_name)" />
 	    
 	    <machine
@@ -70,7 +76,7 @@
 	 
 	  
 
-	</group>
+	</group-->
 
   
   
