@@ -11,9 +11,7 @@ Panels:
         - /RobotModel2
         - /InteractiveMarkers2
         - /TF1
-        - /TF1/Status1
         - /WrenchStamped1
-        - /WrenchStamped1/Status1
       Splitter Ratio: 0.5
     Tree Height: 724
   - Class: rviz/Selection
@@ -264,6 +262,118 @@ Visualization Manager:
       Torque Color: 204; 204; 51
       Unreliable: false
       Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        frankastein/panda_EE:
+          Value: true
+        frankastein/panda_K:
+          Value: true
+        frankastein/panda_hand:
+          Value: true
+        frankastein/panda_leftfinger:
+          Value: true
+        frankastein/panda_link0:
+          Value: true
+        frankastein/panda_link1:
+          Value: true
+        frankastein/panda_link2:
+          Value: true
+        frankastein/panda_link3:
+          Value: true
+        frankastein/panda_link4:
+          Value: true
+        frankastein/panda_link5:
+          Value: true
+        frankastein/panda_link6:
+          Value: true
+        frankastein/panda_link7:
+          Value: true
+        frankastein/panda_link8:
+          Value: true
+        frankastein/panda_rightfinger:
+          Value: true
+        frankastein/world:
+          Value: true
+        pandabaer/panda_EE:
+          Value: true
+        pandabaer/panda_K:
+          Value: true
+        pandabaer/panda_hand:
+          Value: true
+        pandabaer/panda_leftfinger:
+          Value: true
+        pandabaer/panda_link0:
+          Value: true
+        pandabaer/panda_link1:
+          Value: true
+        pandabaer/panda_link2:
+          Value: true
+        pandabaer/panda_link3:
+          Value: true
+        pandabaer/panda_link4:
+          Value: true
+        pandabaer/panda_link5:
+          Value: true
+        pandabaer/panda_link6:
+          Value: true
+        pandabaer/panda_link7:
+          Value: true
+        pandabaer/panda_link8:
+          Value: true
+        pandabaer/panda_rightfinger:
+          Value: true
+        pandabaer/world:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          frankastein/world:
+            frankastein/panda_link0:
+              frankastein/panda_link1:
+                frankastein/panda_link2:
+                  frankastein/panda_link3:
+                    frankastein/panda_link4:
+                      frankastein/panda_link5:
+                        frankastein/panda_link6:
+                          frankastein/panda_link7:
+                            frankastein/panda_link8:
+                              frankastein/panda_EE:
+                                frankastein/panda_K:
+                                  {}
+                              frankastein/panda_hand:
+                                frankastein/panda_leftfinger:
+                                  {}
+                                frankastein/panda_rightfinger:
+                                  {}
+          pandabaer/world:
+            pandabaer/panda_link0:
+              pandabaer/panda_link1:
+                pandabaer/panda_link2:
+                  pandabaer/panda_link3:
+                    pandabaer/panda_link4:
+                      pandabaer/panda_link5:
+                        pandabaer/panda_link6:
+                          pandabaer/panda_link7:
+                            pandabaer/panda_link8:
+                              pandabaer/panda_EE:
+                                pandabaer/panda_K:
+                                  {}
+                              pandabaer/panda_hand:
+                                pandabaer/panda_leftfinger:
+                                  {}
+                                pandabaer/panda_rightfinger:
+                                  {}
+      Update Interval: 0
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -307,10 +417,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.015397216193377972
+      Pitch: -0.184602752327919
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.468597888946533
+      Yaw: 4.003596782684326
     Saved: ~
 Window Geometry:
   Displays:

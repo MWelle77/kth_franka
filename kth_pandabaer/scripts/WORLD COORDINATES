@@ -1,0 +1,30 @@
+WORLD COORDINATE
+
+
+1) COMMON POINT
+
+
+- Translation: [0.336, -0.436, 0.355]
+- Rotation: in Quaternion [0.702, 0.711, -0.009, 0.042]
+            in RPY (radian) [3.095, 0.072, 1.583]
+            in RPY (degree) [177.309, 4.128, 90.688]
+
+
+2) panda
+rosrun tf tf_echo /world /pandabaer/panda_EE
+At time 1557755371.498
+- Translation: [0.520, -0.704, 0.522]
+- Rotation: in Quaternion [0.770, 0.619, 0.056, -0.146]
+            in RPY (radian) [-2.979, -0.270, 1.332]
+            in RPY (degree) [-170.698, -15.449, 76.306]
+
+
+ 3) franka 
+ At time 1557755458.261
+- Translation: [0.513, -0.037, 0.515]
+- Rotation: in Quaternion [0.665, 0.695, -0.163, 0.219]
+            in RPY (radian) [3.066, 0.548, 1.593]
+            in RPY (degree) [175.679, 31.423, 91.298]
+At time 1557755459.261
+
+
