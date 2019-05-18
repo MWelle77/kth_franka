@@ -7,7 +7,7 @@ from std_msgs.msg import Float64MultiArray, MultiArrayDimension, Float64
 
 
 def callback(data):
-    pub = rospy.Publisher('/franka/gripper_position_controller/command',
+    pub = rospy.Publisher('gripper_position_controller/command',
                           Float64MultiArray, queue_size=1)
 
     msg = Float64MultiArray()
@@ -21,7 +21,7 @@ if __name__ == '__main__':
     rospy.init_node('example_joint_publisher')
 
     initial = [0, 0, 0, -0.5, 0, 0.5, 0.75]
-    publishers = [rospy.Publisher('/franka/joint{}_position_controller/command'.format(i), Float64, queue_size=1) for i in range(1, 8)]
+    publishers = [rospy.Publisher('joint{}_position_controller/command'.format(i), Float64, queue_size=1) for i in range(1, 8)]
 
     rospy.sleep(5)
     rospy.loginfo("Setting initial pose.")

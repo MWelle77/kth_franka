@@ -8,7 +8,7 @@ from std_msgs.msg import Float64MultiArray, MultiArrayDimension, Float64
 
 
 def callback(data):
-    pub = rospy.Publisher('/franka/gripper_position_controller/command',
+    pub = rospy.Publisher('gripper_position_controller/command',
                           Float64MultiArray, queue_size=1)
 
     msg = Float64MultiArray()
@@ -20,6 +20,6 @@ def callback(data):
 
 if __name__ == '__main__':
     rospy.init_node('gripper_publisher')
-    rospy.Subscriber("/franka/gripper_width", Float64, callback, queue_size=1)
+    rospy.Subscriber("gripper_width", Float64, callback, queue_size=1)
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()

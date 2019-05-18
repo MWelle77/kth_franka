@@ -21,12 +21,12 @@
         <arg name="headless" value="$(arg headless)"/>
     </include>
 
-	<!-- BEGIN ROBOT 1-->
+	<!-- BEGIN FRANKAS-->
   <group ns="pandabaer">
     <param name="tf_prefix" value="pandabaer_tf" />
     <include file="$(find franka_gazebo)/launch/single_franka.launch" >
       <arg name="robot_name"  value="pandabaer" />
-      <arg name="init_pose"  value="-x 2 -y 0 -z 0 -R 0 -P 0 -Y 0" />
+      <arg name="init_pose"  value="-x -0.01 -y -0.83 -z 0.021 -R 0 -P 0 -Y 0" />
       <arg name="ns"  value="pandabaer" />
     </include>
   </group>
@@ -35,10 +35,18 @@
     <param name="tf_prefix" value="frankastein_tf" />
     <include file="$(find franka_gazebo)/launch/single_franka.launch" >
       <arg name="robot_name"  value="frankastein" />
-      <arg name="init_pose"  value="-x -1 -y 0 -z 0 -R 0 -P 0 -Y 0" />
+      <arg name="init_pose"  value="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" />
       <arg name="ns"  value="frankastein" />
     </include>
   </group>
+
+  <!-- RVIZ-->
+  <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find franka_gazebo)/launch/dual_arm.rviz"/>
+    
+  <!-- TF-tree -->
+  <node pkg="tf" type="static_transform_publisher" name="world_franka" args="0 0 0 0 0 0   world /frankastein_tf/world  100" />
+
+  <node pkg="tf" type="static_transform_publisher" name="world_panda" args="-0.01 -0.83 0.021 0 0 0  world /pandabaer_tf/world 100" />
 
   
 
