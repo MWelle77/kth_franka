@@ -1,0 +1,43 @@
+<launch>
+	<arg name="robot_name"/>
+	<arg name="ns"/>
+	<arg name="init_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0"/>
+    <!-- Robot pose -->
+	<arg name="x" default="0"/>
+	<arg name="y" default="0"/>
+	<arg name="z" default="0"/>
+	<arg name="roll" default="0"/>
+	<arg name="pitch" default="0"/>
+	<arg name="yaw" default="0"/>
+
+
+    
+
+     <node name="spawn" pkg="gazebo_ros" type="spawn_model" args="  -param /robot_description -urdf -model $(arg robot_name) -robot_namespace $(arg ns) $(arg init_pose)  "  />
+
+     
+	<rosparam command="load" file="$(find franka_gazebo)/config/joint_states.yaml"  />
+	<rosparam command="load" file="$(find franka_gazebo)/config/joint_commands.yaml"  />
+	<rosparam command="load" file="$(find franka_gazebo)/config/gripper_commands.yaml"  />
+	<rosparam command="load" file="$(find franka_gazebo)/config/default.yaml"  />
+
+	<node name="franka_controller_spawner" pkg="controller_manager" type="spawner"  args=
+		"joint_state_controller
+		joint1_position_controller
+		joint2_position_controller
+		joint3_position_controller
+		joint4_position_controller
+		joint5_position_controller
+		joint6_position_controller
+		joint7_position_controller
+		gripper_position_controller"/>
+
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/> 
+
+  <node pkg="franka_gazebo" type="gripper_publisher.py" name="gripper_publisher"/>
+  <node pkg="franka_gazebo" type="example_joint_publisher.py" name="example_joint_publisher" output="screen"/>
+
+	
+
+
+</launch>
