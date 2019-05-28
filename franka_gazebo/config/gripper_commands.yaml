@@ -1,5 +1,13 @@
-gripper_position_controller:
+left/gripper_position_controller:
   type: "position_controllers/JointGroupPositionController"
   joints:
-  - panda_finger_joint1
-  - panda_finger_joint2
+  - panda_left_finger_joint1
+  - panda_left_finger_joint2
+  
+
+right/gripper_position_controller:
+  type: "position_controllers/JointGroupPositionController"
+  joints:
+  - panda_right_finger_joint1
+  - panda_right_finger_joint2
+

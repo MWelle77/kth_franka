@@ -1,88 +1,240 @@
 <?xml version='1.0' encoding='utf-8'?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="panda">
+  
   <gazebo>
     <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
       <!--robotNamespace>/</robotNamespace-->
     </plugin>
   </gazebo>
-  
-	<gazebo reference="${arm_id}_link0"/>
-	<gazebo reference="${arm_id}_link1"/>
-	<gazebo reference="${arm_id}_link2"/>
-	<gazebo reference="${arm_id}_link3"/>
-	<gazebo reference="${arm_id}_link4"/>
-	<gazebo reference="${arm_id}_link5"/>
-	<gazebo reference="${arm_id}_link6"/>
-	<gazebo reference="${arm_id}_link7"/>
-	<gazebo reference="${arm_id}_link8"/>
+	<gazebo reference="panda_left_link0">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link1">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link2">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link3">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link4">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link5">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link6">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link7">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+	<gazebo reference="panda_left_link8">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link0">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link1">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link2">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link3">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link4">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link5">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link6">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link7">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
+  <gazebo reference="panda_right_link8">
+      <material>Gazebo/Grey</material>
+          <mu1>0.2</mu1>
+          <mu2>0.2</mu2>
+  </gazebo>
 
-	 <transmission name="${arm_id}_joint1_trans">
+	 <transmission name="panda_left_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint1">
+    <joint name="panda_left_joint1">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint1_motor">
+    <actuator name="panda_left_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint2_trans">
+  <transmission name="panda_right_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint2">
+    <joint name="panda_right_joint1">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint2_motor">
+    <actuator name="panda_right_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint3_trans">
+  <transmission name="panda_left_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint3">
+    <joint name="panda_left_joint2">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint3_motor">
+    <actuator name="panda_left_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint4_trans">
+  <transmission name="panda_right_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint4">
+    <joint name="panda_right_joint2">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint4_motor">
+    <actuator name="panda_right_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint5_trans">
+  <transmission name="panda_left_joint3_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint5">
+    <joint name="panda_left_joint3">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint5_motor">
+    <actuator name="panda_left_joint3_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint6_trans">
+  <transmission name="panda_right_joint3_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint6">
+    <joint name="panda_right_joint3">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint6_motor">
+    <actuator name="panda_right_joint3_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
 
-  <transmission name="${arm_id}_joint7_trans">
+  <transmission name="panda_left_joint4_trans">
     <type>transmission_interface/SimpleTransmission</type>
-    <joint name="${arm_id}_joint7">
+    <joint name="panda_left_joint4">
       <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <actuator name="${arm_id}_joint7_motor">
+    <actuator name="panda_left_joint4_motor">
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
   </transmission>
+
+  <transmission name="panda_right_joint4_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_right_joint4">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_right_joint4_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_left_joint5_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_left_joint5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_left_joint5_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_right_joint5_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_right_joint5">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_right_joint5_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_left_joint6_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_left_joint6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_left_joint6_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_right_joint6_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_right_joint6">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_right_joint6_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_left_joint7_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_left_joint7">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_left_joint7_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  <transmission name="panda_right_joint7_trans">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="panda_right_joint7">
+      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="panda_right_joint7_motor">
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
 </robot>

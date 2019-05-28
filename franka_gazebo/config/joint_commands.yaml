@@ -1,31 +1,63 @@
-joint1_position_controller:
+left/joint1_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint1
+  joint: panda_left_joint1
 
-joint2_position_controller:
+left/joint2_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint2
+  joint: panda_left_joint2
 
-joint3_position_controller:
+left/joint3_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint3
+  joint: panda_left_joint3
 
-joint4_position_controller:
+left/joint4_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint4
+  joint: panda_left_joint4
 
-joint5_position_controller:
+left/joint5_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint5
+  joint: panda_left_joint5
 
-joint6_position_controller:
+left/joint6_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint6
+  joint: panda_left_joint6
 
-joint7_position_controller:
+left/joint7_position_controller:
   type: "position_controllers/JointPositionController"
-  joint: panda_joint7
+  joint: panda_left_joint7
 
-joint7_effort_controller:
+left/joint7_effort_controller:
   type: "effort_controllers/JointEffortController"
-  joint: panda_joint7
+  joint: panda_left_joint7
+
+right/joint1_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint1
+
+right/joint2_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint2
+
+right/joint3_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint3
+
+right/joint4_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint4
+
+right/joint5_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint5
+
+right/joint6_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint6
+
+right/joint7_position_controller:
+  type: "position_controllers/JointPositionController"
+  joint: panda_right_joint7
+
+right/joint7_effort_controller:
+  type: "effort_controllers/JointEffortController"
+  joint: panda_right_joint7
