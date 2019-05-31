@@ -27,10 +27,44 @@
 
 	<node name="spawn" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model panda"/>
 
-	<rosparam command="load" file="$(find franka_gazebo)/config/joint_states.yaml" />
+
+    <rosparam command="load" file="$(find franka_gazebo)/config/dual_franka_gazebo.yaml" />
+    <!--rosparam command="load" file="$(find franka_gazebo)/config/default.yaml"/-->
+    <rosparam command="load" file="$(find franka_gazebo)/config/joint_states.yaml" />
+    <rosparam command="load" file="$(find franka_gazebo)/config/gripper_gazebo.yaml" />
+    <rosparam command="load" file="$(find franka_gazebo)/config/controller_gazebo.yaml" />
+
+
+
+    <node name="franka_controller_spawner" pkg="controller_manager" type="spawner" args=
+        "panda_left_state_controller    
+        panda_left_joint1_position_controller
+        panda_left_joint2_position_controller
+        panda_left_joint3_position_controller
+        panda_left_joint4_position_controller
+        panda_left_joint5_position_controller
+        panda_left_joint6_position_controller
+        panda_left_joint7_position_controller 
+
+        panda_right_state_controller        
+        panda_right_joint1_position_controller
+        panda_right_joint2_position_controller
+        panda_right_joint3_position_controller
+        panda_right_joint4_position_controller
+        panda_right_joint5_position_controller
+        panda_right_joint6_position_controller
+        panda_right_joint7_position_controller
+
+        "/>
+
+
+
+
+	<!--rosparam command="load" file="$(find franka_gazebo)/config/joint_states.yaml" />
 	<rosparam command="load" file="$(find franka_gazebo)/config/joint_commands.yaml" />
 	<rosparam command="load" file="$(find franka_gazebo)/config/gripper_commands.yaml" />
 	<rosparam command="load" file="$(find franka_gazebo)/config/default.yaml"/>
+
 
 	<node name="franka_controller_spawner" pkg="controller_manager" type="spawner" args=
 		"left/joint_state_controller
@@ -50,7 +84,7 @@
         right/joint5_position_controller
         right/joint6_position_controller
         right/joint7_position_controller
-        right/gripper_position_controller"/>
+        right/gripper_position_controller"/-->
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub"/> 
 

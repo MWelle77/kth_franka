@@ -37,7 +37,7 @@
 	<transmission name="panda_left_finger_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_finger_joint1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_finger_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -47,7 +47,7 @@
   <transmission name="panda_left_finger_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_finger_joint2">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_finger_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -58,7 +58,7 @@
   <transmission name="panda_right_finger_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_finger_joint1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_finger_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -68,7 +68,7 @@
   <transmission name="panda_right_finger_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_finger_joint2">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_finger_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>

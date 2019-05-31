@@ -100,7 +100,7 @@
 	 <transmission name="panda_left_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -110,7 +110,7 @@
   <transmission name="panda_right_joint1_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint1">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint1_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -120,7 +120,7 @@
   <transmission name="panda_left_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint2">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -130,7 +130,7 @@
   <transmission name="panda_right_joint2_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint2">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint2_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -140,7 +140,7 @@
   <transmission name="panda_left_joint3_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint3">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint3_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -150,7 +150,7 @@
   <transmission name="panda_right_joint3_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint3">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint3_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -160,7 +160,7 @@
   <transmission name="panda_left_joint4_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint4">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint4_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -170,7 +170,7 @@
   <transmission name="panda_right_joint4_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint4">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint4_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -180,7 +180,7 @@
   <transmission name="panda_left_joint5_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint5">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint5_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -190,7 +190,7 @@
   <transmission name="panda_right_joint5_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint5">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint5_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -200,7 +200,7 @@
   <transmission name="panda_left_joint6_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint6">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint6_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -210,7 +210,7 @@
   <transmission name="panda_right_joint6_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint6">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint6_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -220,7 +220,7 @@
   <transmission name="panda_left_joint7_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_left_joint7">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_left_joint7_motor">
       <mechanicalReduction>1</mechanicalReduction>
@@ -230,7 +230,7 @@
   <transmission name="panda_right_joint7_trans">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="panda_right_joint7">
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     </joint>
     <actuator name="panda_right_joint7_motor">
       <mechanicalReduction>1</mechanicalReduction>
