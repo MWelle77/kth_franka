@@ -1,0 +1,14 @@
+<?xml version="1.0" ?>
+<launch>
+  
+   <arg name="videodev" value="pandabaer"/>
+
+  	<!-- TF-tree -->
+  	<node pkg="uvc_camera" type="uvc_camera_node" name="uvc_camera_node" args="_device:=/dev/video0" />
+
+  	<node pkg="bench_task_03" type="vision.py" name="vision" />
+  	
+
+  
+  
+</launch>
