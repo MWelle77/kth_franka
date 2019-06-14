@@ -24,6 +24,7 @@ class image_converter:
 
   def __init__(self):
     self.image_pub = rospy.Publisher("image_topic_2",Image)
+    self.image_pub_e = rospy.Publisher("image_topic_e",Image)
 
     self.area_pub = rospy.Publisher('area_target', Int32, queue_size=10)
 
@@ -39,10 +40,11 @@ class image_converter:
 
     #ROI cordinates
     y=0
-    x=225
+    x=275
     h=225
     w=225
     crop_frame = cv_image[y:y+h, x:x+w]
+    yellow_pix=0
     #cv2.imshow('frame',crop_frame)
     #find the object (yellow) (not needed for pipline)
     # hsv_obj = cv2.cvtColor(crop_frame, cv2.COLOR_BGR2HSV) 
@@ -84,31 +86,34 @@ class image_converter:
     
     #do least square from: https://github.com/bdhammel/least-squares-ellipse-fitting
     #try:
-    lsqe = el.LSqEllipse()
-    lsqe.fit(data)
-    center, width, height, phi = lsqe.parameters()
+    if(len(datax)>0):
+        lsqe = el.LSqEllipse()
+        lsqe.fit(data)
+        center, width, height, phi = lsqe.parameters()
 
-    #add the ellipse to the crop_frame
-    cv2.ellipse(crop_frame,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,5)
-    #debug
-    #cv2.ellipse(opening,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,5)
-    
-    #get the insifde of ellipse mask
-    e_mask=np.ones((w,h))*0
-    e_mask=e_mask.astype('uint8')
-    cv2.ellipse(e_mask,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,-1)
-    
-    #filter
-    res_elipse = cv2.bitwise_and(crop_frame,crop_frame, mask= e_mask) 
-    res_elipse_hsv_obj = cv2.cvtColor(crop_frame, cv2.COLOR_BGR2HSV) 
-    mask_obj_ellipse = cv2.inRange(res_elipse_hsv_obj, lower_yellow, upper_yellow) 
-    #count yellow pixels inside ellipse
-    yellow_pix=cv2.countNonZero(mask_obj_ellipse)
-
-    #add information to vision screen
-    font = cv2.FONT_HERSHEY_SIMPLEX
-    cv2.putText(crop_frame,str(yellow_pix),(10,50), font, 1,(255,255,255),2,cv2.LINE_AA)
+        #add the ellipse to the crop_frame
+        cv2.ellipse(crop_frame,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,5)
+        #debug
+        #cv2.ellipse(opening,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,5)
         
+        #get the insifde of ellipse mask
+        e_mask=np.ones((w,h))*0
+        e_mask=e_mask.astype('uint8')
+        cv2.ellipse(e_mask,(int(center[1]),int(center[0])),(int(height),int(width)),np.rad2deg(-phi),0,360,255,-1)
+        
+        #filter
+        res_elipse = cv2.bitwise_and(crop_frame,crop_frame, mask= e_mask) 
+        res_elipse_hsv_obj = cv2.cvtColor(res_elipse, cv2.COLOR_BGR2HSV) 
+        mask_obj_ellipse = cv2.inRange(res_elipse_hsv_obj, lower_yellow, upper_yellow) 
+        #count yellow pixels inside ellipse
+        yellow_pix=cv2.countNonZero(mask_obj_ellipse)
+
+        #add information to vision screen
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(crop_frame,str(yellow_pix),(10,50), font, 1,(255,255,255),2,cv2.LINE_AA)
+    else:
+        font = cv2.FONT_HERSHEY_SIMPLEX
+        cv2.putText(crop_frame,str(0),(10,50), font, 1,(255,255,255),2,cv2.LINE_AA)
         
         # Display the resulting frame (debug mode)
         #cv2.imshow('frame',crop_frame)
@@ -124,7 +129,6 @@ class image_converter:
     # (rows,cols,channels) = cv_image.shape
     # if cols > 60 and rows > 60 :
     #   cv2.circle(cv_image, (50,50), 10, 255)
-
     # cv2.imshow("Image window", cv_image)
     # cv2.waitKey(3)
 
